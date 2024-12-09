@@ -2,27 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootBullet : MonoBehaviour
+public class PoolTubo : MonoBehaviour
 {
-    public GameObjectPool bulletPool;
+    public GameObjectPool tuboPool;
+    public float maxTime = 5;
+    private float currentTime;
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire1")) 
+        currentTime += Time.deltaTime;
+        if (currentTime>maxTime)
         {
-            GameObject obj = bulletPool.GimmeInactiveGameObject();
+            float valor = Random.Range(-1, 2);
+            GameObject obj = tuboPool.GimmeInactiveGameObject();
 
             if (obj)
-            {               
+            {
                 obj.SetActive(true); // ya no esta disponible en la pool
                 obj.transform.position = transform.position;
-                obj.GetComponent<Bullet>().SetDirection(transform.forward);
+                obj.GetComponent<Tubos>().SetDirection(-transform.position);
             }
         }
     }
