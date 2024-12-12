@@ -46,6 +46,7 @@ public class GameObjectPool : MonoBehaviour
         clone.SetActive(false);  // se desactiva para que pueda ser usado
         _pool.Add(clone); 
         return clone;
+        //AdDisplayManager.instance.ShowAd();
     }
 
 }

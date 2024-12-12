@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            jumpPressed = true;
+            jumpPressed = true;            
         }
     }
     private void FixedUpdate()
