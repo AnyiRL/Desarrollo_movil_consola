@@ -9,8 +9,14 @@ public class ButtonFunctions : MonoBehaviour
         Application.Quit();
     }
 
-    public void LoadScene(string sceneName)
+    public void LoadFlappyScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+        GameManager.instance.Reset();
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);        
     }
 }

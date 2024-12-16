@@ -26,8 +26,8 @@ public class PoolTubo : MonoBehaviour
             if (obj)
             {
                 obj.SetActive(true); // ya no esta disponible en la pool
-                obj.transform.position = (new Vector3 (7, valor, 0));
-                obj.GetComponent<Tubos>().SetDirection(-transform.right);
+                obj.transform.position = (new Vector3 (13, valor, 0));
+                obj.GetComponent<Tubos>().SetDirection(-Vector3.right);
                 //if (times > 20)
                 //{
                 //    maxTime -= 1;

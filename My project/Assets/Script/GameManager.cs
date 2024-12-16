@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public enum GameManagerVariables { POINTS, LIFES };
-    public float initialPoints;
+    public int initialPoints;
     public int initialLifes;
     private int points = 0;
     private int lifes = 3;
@@ -61,7 +61,12 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Menu");
         }
     }
-    
+
+    public void Reset()
+    {
+        points = initialPoints; 
+        lifes = initialLifes;
+    }
     public void Exit()
     {
         Application.Quit();// cierra la aplicacion

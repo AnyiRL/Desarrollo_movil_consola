@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         if (jumpPressed)
         {
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);  // reiniciar "y" para superar la fuerza de gravedad
-            rb.AddForce(transform.up * jumpForce);
+            rb.AddForce(Vector3.up * jumpForce);
             jumpPressed = false;
         }
     }
