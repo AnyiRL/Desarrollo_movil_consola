@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public int initialLifes;
     private int points = 0;
     private int lifes = 3;
+    private int dead = 0;
 
     private void Awake()
     {
@@ -51,6 +52,20 @@ public class GameManager : MonoBehaviour
     {
         lifes += lifeA;
     }
+    public int GetDead()
+    {
+        return dead;
+    }
+    public void Dead(int deadA)
+    {
+        dead += deadA;
+
+        if (dead > 2)
+        {
+            AdDisplayManager.instance.ShowAd();
+            dead = 0;
+        }
+    }
 
     public void QuitLifes(int valor)
     {
@@ -67,6 +82,7 @@ public class GameManager : MonoBehaviour
         points = initialPoints; 
         lifes = initialLifes;
     }
+    
     public void Exit()
     {
         Application.Quit();// cierra la aplicacion
