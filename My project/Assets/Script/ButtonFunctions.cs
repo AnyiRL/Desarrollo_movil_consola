@@ -13,10 +13,12 @@ public class ButtonFunctions : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
         GameManager.instance.Reset();
+        AudioManager.instance.ClearAudios();
     }
 
     public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);        
+        SceneManager.LoadScene(sceneName);
+        AudioManager.instance.ClearAudios();
     }
 }

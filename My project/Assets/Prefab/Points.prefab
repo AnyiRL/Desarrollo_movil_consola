@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da292be5e3749ea46a22147069bdb2bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointClip: {fileID: 8300000, guid: 02024728206f5b34e9f9ad582372a22d, type: 3}
 --- !u!65 &5807310803916231866
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -229,6 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 528bfe43d6ca8484d8992abec43e23ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ResetClip: {fileID: 8300000, guid: d07e016f97169b646a5de73ab36229d7, type: 3}
 --- !u!1 &8250944183061652447
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,3 +349,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 528bfe43d6ca8484d8992abec43e23ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ResetClip: {fileID: 8300000, guid: d07e016f97169b646a5de73ab36229d7, type: 3}

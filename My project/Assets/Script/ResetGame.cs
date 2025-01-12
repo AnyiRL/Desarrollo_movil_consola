@@ -7,14 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class ResetGame : MonoBehaviour
 {
-    private int valor = 1;
+    public AudioClip ResetClip;
     private void OnTriggerEnter(Collider collision)
     {
         PlayerMovement pM = collision.GetComponent<PlayerMovement>();
         if (pM!= null)
-        {
-            GameManager.instance.Dead(valor);
-            SceneManager.LoadScene("Reset");                     
+        {           
+            AudioManager.instance.PlayAudio(ResetClip, "resetSound");          
         }
     }
 }

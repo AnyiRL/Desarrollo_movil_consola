@@ -1,21 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float jumpForce;
     private bool jumpPressed;
     private Rigidbody rb;
+    private Animator _animator;
+    private float currentTime = 0;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        currentTime += Time.deltaTime;
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             jumpPressed = true;       
@@ -34,4 +41,27 @@ public class PlayerMovement : MonoBehaviour
             jumpPressed = false;
         }
     }
+    private void OnTriggerEnter(Collider collision)
+    {
+
+        ResetGame PComponent = collision.gameObject.GetComponent<ResetGame>();
+
+        if (PComponent != null)
+        {           
+            _animator.Play("muerte_Clip");
+    
+            if ( currentTime > 2)
+            {
+                GameManager.instance.Dead(1);
+                currentTime = 0;
+            }
+            
+        }
+    }
+    private void ChangeScene()
+    {
+        SceneManager.LoadScene("Reset");
+        //AudioManager.instance.ClearAudios();
+    }
+    
 }
