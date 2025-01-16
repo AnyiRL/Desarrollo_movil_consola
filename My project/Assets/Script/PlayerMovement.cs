@@ -22,11 +22,25 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         currentTime += Time.deltaTime;
+#if UNITY_EDITOR || UNITY_STANDARLONE //del procesador que se ejecuta antes de compilar   CONDITIONAL COMBINATION
 
+        // PC
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            jumpPressed = true;       
+            jumpPressed = true;
         }
+#elif UNITY_ANDROID
+
+        // Android
+        foreach (Touch touch in Input.touches) //por cada toque en todos los toques que haya en pantalla
+        {
+            if (touch.phase == TouchPhase.Began)  //si es el primer toque de la pantalla
+            {
+                jumpPressed = true;
+            }
+        }
+#endif
+
     }
     private void FixedUpdate()
     {
@@ -54,14 +68,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 GameManager.instance.Dead(1);
                 currentTime = 0;
-            }
-            
+            }       
         }
     }
     private void ChangeScene()
     {
         SceneManager.LoadScene("Reset");
-        //AudioManager.instance.ClearAudios();
+        AudioManager.instance.ClearAudios();
     }
     
 }

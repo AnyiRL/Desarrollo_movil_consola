@@ -39,7 +39,7 @@ public class AdDisplayManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsS
     public void OnUnityAdsShowStart(string placementId)  //Ejecuta la lógica para que un anuncio se muestre correctamente.
     {       
     }
-    public void OnInitializationComplete()
+    public void OnInitializationComplete()  //callback
     {
     }
 
